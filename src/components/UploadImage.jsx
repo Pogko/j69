@@ -103,7 +103,7 @@ function UploadImage() {
 		<div className="flex flex-col justify-center items-center">
 			<div className="text-center mb-4">
 				<h1 className="text-1xl md:text-2xl md:px-10 font-bold mb-4 w-full text-white">
-					Upload Memories on
+					Upload Memories on J69
 				</h1>
 			</div>
 
