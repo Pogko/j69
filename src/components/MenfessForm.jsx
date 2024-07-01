@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Swal from "sweetalert2";
+import { db } from "../firebase";
+import { collection, addDoc } from "firebase/firestore";
 
 const MenfessForm = () => {
   const [from, setFrom] = useState("");
@@ -21,13 +23,18 @@ const MenfessForm = () => {
     }
 
     try {
+      // Menyimpan pesan ke Firestore
+      await addDoc(collection(db, "menfess"), {
+        from,
+        to,
+        message,
+        timestamp: new Date(),
+      });
+
       // Reset field formulir setelah pengiriman
       setFrom("");
       setTo("");
       setMessage("");
-      setTimeout(() => {
-        setShouldScrollToBottom(true);
-      }, 100);
 
       Swal.fire({
         icon: "success",
@@ -39,6 +46,14 @@ const MenfessForm = () => {
       });
     } catch (error) {
       console.error("Error adding document: ", error);
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "There was an error submitting your Menfess. Please try again.",
+        customClass: {
+          container: "sweet-alert-container",
+        },
+      });
     }
   };
 
@@ -48,46 +63,46 @@ const MenfessForm = () => {
         Menfess Form
       </div>
       <div id="FormMenfess" className="flex flex-col mt-5">
- <form>
-  <div className="flex items-center mb-4">
-    <img src="/user-solid.svg" alt="From Image" className="h-6 w-6 mr-2" />
-    <label htmlFor="from" className="text-white w-20 mb-2">From :</label>
-    <input
-      type="text"
-      id="from"
-      value={from}
-      onChange={(e) => setFrom(e.target.value)}
-      className="bg-transparent border-b-2 border-white text-white p-1 flex-grow"
-    />
-  </div>
+        <form>
+          <div className="flex items-center mb-4">
+            <img src="/user-solid.svg" alt="From Image" className="h-6 w-6 mr-2" />
+            <label htmlFor="from" className="text-white w-20 mb-2">From :</label>
+            <input
+              type="text"
+              id="from"
+              value={from}
+              onChange={(e) => setFrom(e.target.value)}
+              className="bg-transparent border-b-2 border-white text-white p-1 flex-grow"
+            />
+          </div>
 
-  <div className="flex items-center mb-4">
-    <img src="/paper-plane.png" alt="To Image" className="h-6 w-6 mr-2" />
-    <label htmlFor="to" className="text-white w-20 mb-2">To :</label>
-    <input
-      type="text"
-      id="to"
-      value={to}
-      onChange={(e) => setTo(e.target.value)}
-      className="bg-transparent border-b-2 border-white text-white p-1 flex-grow"
-    />
-  </div>
+          <div className="flex items-center mb-4">
+            <img src="/paper-plane.png" alt="To Image" className="h-6 w-6 mr-2" />
+            <label htmlFor="to" className="text-white w-20 mb-2">To :</label>
+            <input
+              type="text"
+              id="to"
+              value={to}
+              onChange={(e) => setTo(e.target.value)}
+              className="bg-transparent border-b-2 border-white text-white p-1 flex-grow"
+            />
+          </div>
 
-  <div className="flex items-center mb-4">
-    <img src="/Menfess.svg" alt="Message Image" className="h-6 w-6 mr-2" />
-    <label htmlFor="message" className="text-white w-20 mb-2">Pesan :</label>
-    <textarea
-      id="message"
-      value={message}
-      onChange={(e) => setMessage(e.target.value)}
-      className="bg-transparent border-b-2 border-white text-white p-1 flex-grow"
-    />
-  </div>
-  </form>
-  <button onClick={sendMessage} className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
-    Submit
-  </button>
-     </div>
+          <div className="flex items-center mb-4">
+            <img src="/Menfess.svg" alt="Message Image" className="h-6 w-6 mr-2" />
+            <label htmlFor="message" className="text-white w-20 mb-2">Pesan :</label>
+            <textarea
+              id="message"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              className="bg-transparent border-b-2 border-white text-white p-1 flex-grow"
+            />
+          </div>
+        </form>
+        <button onClick={sendMessage} className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
+          Submit
+        </button>
+      </div>
     </div>
   );
 };
