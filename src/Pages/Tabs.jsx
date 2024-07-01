@@ -8,7 +8,7 @@ import Tab from "@mui/material/Tab"
 import Typography from "@mui/material/Typography"
 import Box from "@mui/material/Box"
 import StrukturKelas from "./StrukturKelas"
-import Schedule from "./Schedule"
+// import Schedule from "./Schedule"
 import AOS from "aos"
 import "aos/dist/aos.css"
 
@@ -72,81 +72,80 @@ export default function FullWidthTabs() {
 			<div
 				className="font-medium text-[1.6rem] md:text-[1.8rem] relative md:top-[2.8rem] top-[2.7rem] text-center text-white"
 				id="Glow">
-				&
+				
 			</div>
 			<Box sx={{ width: "100%" }}>
-				<AppBar
-					position="static"
-					sx={{ bgcolor: "transparent", boxShadow: "none" }}
-					className="px-[10%]">
-					<Tabs
-						value={value}
-						onChange={handleChange}
-						textColor="inherit"
-						indicatorColor="inherit"
-						variant="scrollable"
-						scrollButtons="auto"
-						sx={{
-							display: "flex",
-							justifyContent: "center",
-							width: "auto",
-							margin: "0 auto",
-							"& .MuiTabs-indicator": {
-								borderBottom: "2px solid white", 
-							},
-						}}
-						className="font-medium text-white text-2xl text-center mt-16"
-						id="Glow">
-						<Tab
-							label="Structure"
-							{...a11yProps(0)}
-							sx={{
-								fontWeight: "medium",
-								color: "white",
-								fontSize: ["1.5rem"],
-								textTransform: "capitalize",
-								fontFamily: '"Poppins", sans-serif',
-								padding: "0.5rem",
-								marginRight: "0.7rem",
-							}}
-						
-							className="font-medium text-white text-2xl text-center mt-16 "
-							id="Glow"
-						/>
-
-						<Tab
-							label="Schedule"
-							{...a11yProps(1)}
-							sx={{
-								fontWeight: "medium",
-								color: "white",
-								fontSize: ["1.5rem"],
-								textTransform: "capitalize",
-								fontFamily: '"Poppins", sans-serif',
-								padding: "0.5rem",
-								marginLeft: "0.7rem",
-							}}
-							// className untuk menentukan gaya tab.
-							className="font-medium text-white text-2xl text-center mt-16 "
-							id="Glow"
-						/>
-					</Tabs>
-				</AppBar>
-				<SwipeableViews
-					axis={theme.direction === "rtl" ? "x-reverse" : "x"}
-					index={value}
-					onChangeIndex={handleChangeIndex}>
-					<TabPanel value={value} index={0} dir={theme.direction}>
-						<div>
-							<StrukturKelas />
-						</div>
-					</TabPanel>
-					<TabPanel value={value} index={1} dir={theme.direction}>
-						<div>
-							<Schedule />
-						</div>
-					</TabPanel>
-				</SwipeableViews>
+			<AppBar
+  position="static"
+  sx={{ bgcolor: "transparent", boxShadow: "none" }}
+  className="px-[10%]">
+  <Tabs
+    value={value}
+    onChange={handleChange}
+    textColor="inherit"
+    indicatorColor="inherit"
+    variant="scrollable"
+    scrollButtons="auto"
+    sx={{
+      display: "flex",
+      justifyContent: "center",
+      width: "auto",
+      margin: "0 auto",
+      "& .MuiTabs-indicator": {
+        borderBottom: "2px solid white",
+      },
+    }}
+    className="font-medium text-white text-2xl text-center mt-16"
+    id="Glow">
+    <Tab
+      label="Structure"
+      {...a11yProps(0)}
+      sx={{
+        fontWeight: "medium",
+        color: "white",
+        fontSize: ["1.5rem"],
+        textTransform: "capitalize",
+        fontFamily: '"Poppins", sans-serif',
+        padding: "0.5rem",
+        marginRight: "0.7rem",
+      }}
+      className="font-medium text-white text-2xl text-center mt-16 "
+      id="Glow"
+    />
+    {/* Hapus atau komentari Tab Schedule */}
+    {/* <Tab
+      label="Schedule"
+      {...a11yProps(1)}
+      sx={{
+        fontWeight: "medium",
+        color: "white",
+        fontSize: ["1.5rem"],
+        textTransform: "capitalize",
+        fontFamily: '"Poppins", sans-serif',
+        padding: "0.5rem",
+        marginLeft: "0.7rem",
+      }}
+      className="font-medium text-white text-2xl text-center mt-16 "
+      id="Glow"
+    /> */}
+  </Tabs>
+</AppBar>
+<SwipeableViews
+  axis={theme.direction === "rtl" ? "x-reverse" : "x"}
+  index={value}
+  onChangeIndex={handleChangeIndex}>
+  <TabPanel value={value} index={0} dir={theme.direction}>
+    <div>
+      <StrukturKelas />
+    </div>
+  </TabPanel>
+  {/* Hapus atau komentari TabPanel Schedule */}
+  {/* <TabPanel value={value} index={1} dir={theme.direction}>
+    <div>
+      <Schedule />
+    </div>
+  </TabPanel> */}
+</SwipeableViews>
 			</Box>
 		</div>
 	)

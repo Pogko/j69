@@ -1,13 +1,13 @@
-const BoxClassIg = () => {
+const BoxWa = () => {
 	return (
-		<div id="BoxClassIg">
-		<a href="https://www.instagram.com/acetkjthree/?hl=id">
+		<div id="BoxWa">
+		<a href="https://chat.whatsapp.com/CKIQN7O997mGWSLckxYkhC">
 				<div className="flex justify-between relative ">
-					<img src="/Instagram.svg" alt="" className="w-auto h-10" />
+					<img src="/wa.svg" alt="" className="w-auto h-10" />
 					<img src="/next.png" alt="" className="h-4 w-4" />
 				</div>
 				<h1 className="text-white text-lg font-semibold pr-3 mt-3 absolute bottom-10">
-					Class Instagram
+					Group WhatsApp
 				</h1>
 				<div className="text-white flex py-2 opacity-60 absolute bottom-1 text-xs">View More</div>
 			</a>
@@ -15,4 +15,4 @@ const BoxClassIg = () => {
 	)
 }
 
-export default BoxClassIg
+export default BoxWa

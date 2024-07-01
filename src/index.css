@@ -140,7 +140,7 @@ body {
 	filter: brightness(0) invert(1);
 }
 
-#BoxClassIg {
+#BoxWa {
 	padding: 10%;
 	height: auto;
 	width: 100%;
@@ -155,7 +155,7 @@ body {
 	border: 1px solid rgba(255, 255, 255, 0.09);
 }
 
-#BoxClassIg Img {
+#BoxWa Img {
 	filter: brightness(0) invert(1);
 }
 
