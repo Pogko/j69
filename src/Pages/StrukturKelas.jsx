@@ -198,7 +198,7 @@ const StrukturKelas = () => {
 					data-aos="fade-up"
 					data-aos-duration="1100">
 					<div className="flex-col">
-						<BorderStruktur Jabatan="Admin" Nama="Amat" Width="120px" />
+						<BorderStruktur Jabatan="Admin" Nama="Caca" Width="120px" />
 					</div>
 
 					<div className="flex-col">
@@ -266,7 +266,7 @@ const StrukturKelas = () => {
 						<img src="LineVertikal3.svg" alt="" className="lg:hidden" />
 						<img src="Circle.svg" alt="" className="relative top-[-0.7rem]" />
 						<div className="relative bottom-3">
-							<BorderStruktur Jabatan="Admin" Nama="Caca" Width="120px" />
+							<BorderStruktur Jabatan="Admin" Nama="Amat" Width="120px" />
 						</div>
 					</div>
 				</div>
