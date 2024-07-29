@@ -11,10 +11,59 @@
 	--quinary-color: #ff775c;
 	--senary-color: #ff4359;
 	--septenary-color: #76ffb0;
+	--color-dark: #161616;
+	--color-snow: #FFFFFF;
 	--bg: #4b39c6;
 	--bg1: #e06bd5;
+
+	--borderRadius: 36px;
 }
 
+/* reset */
+html {
+	box-sizing: border-box;
+  }
+  *, *:before, *:after {
+	box-sizing: inherit;
+  }
+  
+ /* button styles */
+.button {
+	display: flex;
+	align-items: center;
+	padding: 12px 24px;
+	border-radius: var(--borderRadius);
+	font-family: var(--font-face);
+	cursor: pointer;
+	margin: 10px;
+	background-color: var(--color-dark);
+	color: var(--color-snow);
+	text-decoration: none; /* Menghilangkan underline pada elemen <a> */
+	width: 300px; /* Lebar tombol */
+	height: 50px; /* Tinggi tombol */
+	box-sizing: border-box;
+  }
+  
+  .button:hover {
+	background-color: var(--color-grass); /* Warna saat di-hover */
+  }
+  
+  .wa-icon {
+	height: 24px; /* Ukuran ikon */
+	width: 24px; /* Ukuran ikon */
+	margin-right: 10px; /* Jarak antara ikon dan teks */
+  }
+  
+  .button-text {
+	flex: 1; /* Memastikan teks mengambil ruang tersisa di tombol */
+	display: flex;
+	align-items: center; /* Vertikal tengah teks */
+	justify-content: center; /* Horizontal tengah teks */
+	color: var(--color-snow); /* Warna teks putih */
+	font-size: 16px; /* Ukuran teks */
+	text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Efek glow putih */
+  }
+  
 html {
 	scroll-behavior: smooth;
 }
@@ -320,6 +369,20 @@ body {
 	-webkit-backdrop-filter: blur(6.9px);
 	border: 1px solid rgba(255, 255, 255, 0.09);
 	padding: 16px;
+}
+
+#modalBoxWa {
+    padding: 10%;
+    height: auto;
+    width: 100%;
+    margin-top: 5%;
+    border-radius: 15pt;
+    background: rgba(255, 255, 255, 0.14);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6.9px);
+    -webkit-backdrop-filter: blur(6.9px);
+    border: 1px solid rgba(255, 255, 255, 0.09);
 }
 
 .modal-container {

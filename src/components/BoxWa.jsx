@@ -1,18 +1,28 @@
+import * as React from "react"
+import GroupWa from './GroupWa';
+
 const BoxWa = () => {
+	const [open, setOpen] = React.useState(false);
+	const handleOpen = () => setOpen(true);
+	const handleClose = () => setOpen(false);
+
 	return (
-		<div id="BoxWa">
-		<a href="https://chat.whatsapp.com/CKIQN7O997mGWSLckxYkhC">
-				<div className="flex justify-between relative ">
-					<img src="/wa.svg" alt="" className="w-auto h-10" />
-					<img src="/next.png" alt="" className="h-4 w-4" />
+		<div>
+			<div onClick={handleOpen}>
+				<div id="BoxWa">
+					<div className="flex justify-between relative">
+						<img src="/wa.svg" alt="" className="w-auto h-10" />
+						<img src="/next.png" alt="" className="h-4 w-4" />
+					</div>
+					<h1 className="text-white text-lg font-semibold pr-3 mt-3">
+						Group WhatsApp
+					</h1>
 				</div>
-				<h1 className="text-white text-lg font-semibold pr-3 mt-3 absolute bottom-10">
-					Group WhatsApp
-				</h1>
-				<div className="text-white flex py-2 opacity-60 absolute bottom-1 text-xs">View More</div>
-			</a>
+			</div>
+
+			<GroupWa open={open} handleClose={handleClose} />
 		</div>
-	)
+	);
 }
 
-export default BoxWa
+export default BoxWa;
