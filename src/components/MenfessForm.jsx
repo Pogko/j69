@@ -1,20 +1,19 @@
 import React, { useState } from "react";
 import Swal from "sweetalert2";
-import { db } from "../firebase";
-import { collection, addDoc } from "firebase/firestore";
+import emailjs from 'emailjs-com';
 
 const MenfessForm = () => {
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
   const [message, setMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState(""); // Tambahkan state untuk pesan kesalahan
 
-  const sendMessage = async () => {
+  const sendMessage = () => {
     if (from.trim() === "" || to.trim() === "" || message.trim() === "") {
-      // Menampilkan pesan kesalahan jika salah satu field kosong
       Swal.fire({
         icon: "error",
         title: "Error",
-        text: "Please fill in all fields.",
+        text: "Tolong isi semua field.",
         customClass: {
           container: "sweet-alert-container",
         },
@@ -22,51 +21,51 @@ const MenfessForm = () => {
       return;
     }
 
-    try {
-      // Menyimpan pesan ke Firestore
-      await addDoc(collection(db, "menfess"), {
-        from,
-        to,
-        message,
-        timestamp: new Date(),
-      });
+    const templateParams = {
+      from_name: from,
+      to_name: to,
+      message: message,
+    };
 
-      // Reset field formulir setelah pengiriman
-      setFrom("");
-      setTo("");
-      setMessage("");
+    emailjs.send('service_w4u717q', 'template_3kqxajv', templateParams, '30uyQKyScLQSGpkLp')
+      .then((response) => {
+        setFrom("");
+        setTo("");
+        setMessage("");
+        setErrorMessage(""); // Reset pesan kesalahan
 
-      Swal.fire({
-        icon: "success",
-        title: "Success",
-        text: "Your Menfess has been submitted!",
-        customClass: {
-          container: "sweet-alert-container",
-        },
+        Swal.fire({
+          icon: "success",
+          title: "Success",
+          text: "Menfess Anda telah dikirim!",
+          customClass: {
+            container: "sweet-alert-container",
+          },
+        });
+      })
+      .catch((error) => {
+        console.error("Error sending email: ", error);
+        setErrorMessage(`Error: ${error.text}`); // Set pesan kesalahan
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: "Terjadi kesalahan saat mengirim Menfess Anda. Silakan coba lagi.",
+          customClass: {
+            container: "sweet-alert-container",
+          },
+        });
       });
-    } catch (error) {
-      console.error("Error adding document: ", error);
-      Swal.fire({
-        icon: "error",
-        title: "Error",
-        text: "There was an error submitting your Menfess. Please try again.",
-        customClass: {
-          container: "sweet-alert-container",
-        },
-      });
-    }
   };
 
   return (
     <div>
       <div className="text-center text-2xl font-semibold mb-2 text-white" id="Glow">
-        Menfess Form
+        Formulir Menfess
       </div>
       <div id="FormMenfess" className="flex flex-col mt-5">
         <form>
           <div className="flex items-center mb-4">
-            <img src="/user-solid.svg" alt="From Image" className="h-6 w-6 mr-2" />
-            <label htmlFor="from" className="text-white w-20 mb-2">From :</label>
+            <label htmlFor="from" className="text-white w-20 mb-2">Dari :</label>
             <input
               type="text"
               id="from"
@@ -77,8 +76,7 @@ const MenfessForm = () => {
           </div>
 
           <div className="flex items-center mb-4">
-            <img src="/paper-plane.png" alt="To Image" className="h-6 w-6 mr-2" />
-            <label htmlFor="to" className="text-white w-20 mb-2">To :</label>
+            <label htmlFor="to" className="text-white w-20 mb-2">Kepada :</label>
             <input
               type="text"
               id="to"
@@ -89,7 +87,6 @@ const MenfessForm = () => {
           </div>
 
           <div className="flex items-center mb-4">
-            <img src="/Menfess.svg" alt="Message Image" className="h-6 w-6 mr-2" />
             <label htmlFor="message" className="text-white w-20 mb-2">Pesan :</label>
             <textarea
               id="message"
@@ -100,8 +97,9 @@ const MenfessForm = () => {
           </div>
         </form>
         <button onClick={sendMessage} className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
-          Submit
+          Kirim
         </button>
+        {errorMessage && <div className="text-red-500 mt-4">{errorMessage}</div>} {/* Tampilkan pesan kesalahan */}
       </div>
     </div>
   );

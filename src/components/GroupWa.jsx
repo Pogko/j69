@@ -72,10 +72,10 @@ const GroupWa = ({ open, handleClose }) => {
               <span className="button-text">Group 1</span>
             </a>
 
-            <div className="button">
+             <a href="https://chat.whatsapp.com/CvPYbbL0jFcIoTziKbtzoJ" className="button">
               <img src="/wa.svg" alt="WA Icon" className="wa-icon" />
-              <span className="button-text">Group 2(COOMINGSOON)</span>
-          </div>
+              <span className="button-text">Group 2</span>
+             </a>
           </div>
         </Box>
       </Fade>
