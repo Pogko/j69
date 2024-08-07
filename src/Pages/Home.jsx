@@ -1,5 +1,5 @@
 import BoxWa from "../components/BoxWa"
-import BoxMenfess from "../components/BoxMenfess"
+import BoxContact from "../components/BoxContact"
 import BoxTextAnonim from "../components/BoxTextAnonim"
 import Navbar from "../components/Navbar"
 
@@ -22,7 +22,7 @@ const Home = () => {
 						<BoxWa />
 					</div>
 					<div className="grid gap-2 md:gap-0 md:grid-cols-1">
-						<BoxMenfess />
+						<BoxContact />
 						<BoxTextAnonim />
 					</div>
 				</div>

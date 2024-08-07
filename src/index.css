@@ -170,7 +170,7 @@ body {
 	filter: brightness(0) invert(1);
 }
 
-#BoxOldWeb {
+#BoxContact {
 	padding: 10%;
 	height: auto;
 	width: 100%;
@@ -185,7 +185,7 @@ body {
 	border: 1px solid rgba(255, 255, 255, 0.09);
 }
 
-#BoxOldWeb Img {
+#BoxContact Img {
 	filter: brightness(0) invert(1);
 }
 

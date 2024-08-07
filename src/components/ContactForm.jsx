@@ -2,14 +2,19 @@ import React, { useState } from "react";
 import Swal from "sweetalert2";
 import emailjs from 'emailjs-com';
 
-const MenfessForm = () => {
-  const [from, setFrom] = useState("");
-  const [to, setTo] = useState("");
+const ContactForm = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [errorMessage, setErrorMessage] = useState(""); // Tambahkan state untuk pesan kesalahan
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const isValidEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
 
   const sendMessage = () => {
-    if (from.trim() === "" || to.trim() === "" || message.trim() === "") {
+    if (name.trim() === "" || email.trim() === "" || message.trim() === "") {
       Swal.fire({
         icon: "error",
         title: "Error",
@@ -21,23 +26,35 @@ const MenfessForm = () => {
       return;
     }
 
+    if (!isValidEmail(email)) {
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "Tolong masukkan email yang valid.",
+        customClass: {
+          container: "sweet-alert-container",
+        },
+      });
+      return;
+    }
+
     const templateParams = {
-      from_name: from,
-      to_name: to,
+      name: name,
+      email: email,
       message: message,
     };
 
     emailjs.send('service_w4u717q', 'template_3kqxajv', templateParams, '30uyQKyScLQSGpkLp')
       .then((response) => {
-        setFrom("");
-        setTo("");
+        setName("");
+        setEmail("");
         setMessage("");
         setErrorMessage(""); // Reset pesan kesalahan
 
         Swal.fire({
           icon: "success",
           title: "Success",
-          text: "Menfess Anda telah dikirim!",
+          text: "Pesan Anda telah dikirim!",
           customClass: {
             container: "sweet-alert-container",
           },
@@ -49,7 +66,7 @@ const MenfessForm = () => {
         Swal.fire({
           icon: "error",
           title: "Error",
-          text: "Terjadi kesalahan saat mengirim Menfess Anda. Silakan coba lagi.",
+          text: "Terjadi kesalahan saat mengirim pesan Anda. Silakan coba lagi.",
           customClass: {
             container: "sweet-alert-container",
           },
@@ -60,34 +77,34 @@ const MenfessForm = () => {
   return (
     <div>
       <div className="text-center text-2xl font-semibold mb-2 text-white" id="Glow">
-        Formulir Menfess
+        Formulir Kontak
       </div>
-      <div id="FormMenfess" className="flex flex-col mt-5">
+      <div id="FormContact" className="flex flex-col mt-5">
         <form>
           <div className="flex items-center mb-4">
-            <label htmlFor="from" className="text-white w-20 mb-2">Dari :</label>
+            <label htmlFor="name" className="text-white w-20 mb-2">Nama:</label>
             <input
               type="text"
-              id="from"
-              value={from}
-              onChange={(e) => setFrom(e.target.value)}
+              id="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               className="bg-transparent border-b-2 border-white text-white p-1 flex-grow"
             />
           </div>
 
           <div className="flex items-center mb-4">
-            <label htmlFor="to" className="text-white w-20 mb-2">Kepada :</label>
+            <label htmlFor="email" className="text-white w-20 mb-2">Email:</label>
             <input
-              type="text"
-              id="to"
-              value={to}
-              onChange={(e) => setTo(e.target.value)}
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="bg-transparent border-b-2 border-white text-white p-1 flex-grow"
             />
           </div>
 
           <div className="flex items-center mb-4">
-            <label htmlFor="message" className="text-white w-20 mb-2">Pesan :</label>
+            <label htmlFor="message" className="text-white w-20 mb-2">Pesan:</label>
             <textarea
               id="message"
               value={message}
@@ -105,4 +122,4 @@ const MenfessForm = () => {
   );
 };
 
-export default MenfessForm;
+export default ContactForm;
