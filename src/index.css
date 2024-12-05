@@ -553,3 +553,76 @@ input:focus {
 	background-image: radial-gradient(at 80% 100%, hsla(282, 97%, 43%, 0) 0px, transparent 50%),
 		radial-gradient(at 0% 0%, #ff4359 0px, transparent 60%);
 } */
+
+/* Voting Container */
+.voting-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1); /* Bening dengan transparansi */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Judul Voting */
+.voting-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #fff; /* Warna putih untuk teks */
+}
+
+/* Pilihan Voting */
+.voting-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.vote-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.05); /* Bening dengan latar gelap */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #fff; /* Warna putih untuk teks */
+}
+
+.vote-option:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Sedikit lebih terang saat hover */
+    border-color: #0099cc;
+}
+
+.vote-option.voted {
+    background-color: rgba(255, 255, 255, 0.05); /* Tetap bening saat sudah vote */
+    color: #aaa; /* Warna abu-abu untuk teks */
+    cursor: not-allowed;
+}
+
+.vote-text {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.vote-count {
+    font-size: 0.9rem;
+    color: #ddd; /* Warna abu-abu terang untuk jumlah suara */
+}
+
+.no-voting-text {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.8); /* Warna putih transparan */
+    text-align: center;
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1); /* Bening dengan transparansi */
+    border: 1px dashed rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+}

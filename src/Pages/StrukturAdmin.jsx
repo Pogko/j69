@@ -3,7 +3,7 @@ import BorderStruktur from "../components/BorderStruktur"
 import AOS from "aos"
 import "aos/dist/aos.css"
 
-const StrukturKelas = () => {
+const StrukturAdmin = () => {
 	const [aosLoaded, setAosLoaded] = useState(false)
 
 	useEffect(() => {
@@ -20,20 +20,20 @@ const StrukturKelas = () => {
 				{/* Owner dan Wakil */}
 				<div className="flex relative top-[-3rem] mt-10" data-aos="fade-up" data-aos-duration="1200">
 					<div className="relative left-[0.2rem]">
-						<BorderStruktur Jabatan="Owner" Nama="Iki" Width="120px" />
+						<BorderStruktur Jabatan="Admin" Nama="Iki" Width="120px" />
 					</div>
 					<img src="LineHorizontalPendek.svg" className="relative top-3" />
 					<img src="LineHorizontalPendek.svg" className="relative top-3 hidden lg:flex" />
 					<img src="LineHorizontalPendek.svg" className="relative top-3 hidden lg:flex" />
 					<img src="LineHorizontalPendek.svg" className="relative top-3 hidden lg:flex" />
 					<div className="relative right-[0.2rem]">
-						<BorderStruktur Jabatan="Co Owner" Nama="Arshal" Width="120px" />
+						<BorderStruktur Jabatan="Admin" Nama="Erik" Width="120px" />
 					</div>
 				</div>
 
 				<div data-aos="fade-up" data-aos-duration="120" className="">
 					<img src="LineVertikal2.svg" alt="" className="relative top-[-3.8rem]" />
-				</div>
+				</div> 
 
 				{/* admin */}
 				<div className="lg:flex">
@@ -67,7 +67,7 @@ const StrukturKelas = () => {
 					data-aos-duration="1000">
 					<img src="Circle.svg" alt="" />
 					<img src="Circle.svg" alt="" />
-				</div>
+				</div> 
 
 				<div
 					className="flex gap-[5rem] relative top-[-7.3rem] lg:gap-[22rem]"
@@ -78,16 +78,16 @@ const StrukturKelas = () => {
 					</div>
 
 					<div className="flex-col">
-						<BorderStruktur Jabatan="Admin" Nama="Azel" Width="120px" />
+						<BorderStruktur Jabatan="Admin" Nama="Amat" Width="120px" />
 					</div>
 				</div>
 
-				<div className="relative top-[-15rem]" data-aos="fade-up" data-aos-duration="900">
+			    <div className="relative top-[-15rem]" data-aos="fade-up" data-aos-duration="900">
 					<img src="LineVertikal3.svg" alt="" />
-				</div>
+				</div>   
 
 				{/* admin */}
-				<div className="lg:flex">
+			{/*	<div className="lg:flex">
 					<img
 						src="LineHorizontal.svg"
 						alt=""
@@ -149,11 +149,11 @@ const StrukturKelas = () => {
 
 				{/*	<div className="flex-col hidden lg:flex">
 						<BorderStruktur Jabatan="Admin" Nama="m" Width="120px" />
-					</div> */}
-				</div>
+					</div>
+				</div> */}
 
 				{/* Admin */}
-				<div className="lg:flex">
+			   {/* <div className="lg:flex">
 					<img
 						src="LineHorizontal.svg"
 						alt=""
@@ -161,13 +161,14 @@ const StrukturKelas = () => {
 						data-aos="fade-up"
 						data-aos-duration="600"
 					/>
-					{/* 	<img
+					{/* jgnn
+					 	<img
 						src="LineHorizontal.svg"
 						alt=""
 						className="relative top-[-16.9rem] hidden lg:flex lg:w-[50px]"
 						data-aos="fade-up"
 						data-aos-duration="600"
-					/> */}
+					/>    *okk
 
 					<img
 						src="LineHorizontal.svg"
@@ -204,10 +205,10 @@ const StrukturKelas = () => {
 					<div className="flex-col">
 						<BorderStruktur Jabatan="Admin" Nama="Atha" Width="120px" />
 					</div>
-				</div>
+				</div> */}
 
 				{/* admin */}
-				<div className="lg:flex">
+		{/* 	<div className="lg:flex">
 					<img
 						src="LineHorizontal.svg"
 						alt=""
@@ -257,7 +258,7 @@ const StrukturKelas = () => {
 					<div className="flex-col">
 						<BorderStruktur Jabatan="Admin" Nama="Yuki" Width="120px" />
 					</div>
-				</div>
+				</div>      */}
 
 			{/*	<div className=" absolute bottom-[15%] " data-aos="fade-up" data-aos-duration="1000">
 					<div className="flex justify-center items-center flex-col">
@@ -277,14 +278,13 @@ const StrukturKelas = () => {
 					data-aos="fade-up"
 					data-aos-duration="1200">
 					<div className="flex justify-center items-center flex-col">
-						<img src="LineVertikal3.svg" alt="" className="lg:hidden" />
-						<img src="LineVertikal3.svg" alt="" className="" />
-						<img src="LineVertikal3.svg" alt="" className="lg:h-[120px] lg:-z-50" />
+						<img src="LineVertikal3.svg" alt="" className="lg:hidden" /> 
+					 {/*  <img src="LineVertikal3.svg" alt="" className="" /> 
+					    <img src="LineVertikal3.svg" alt="" className="lg:h-[120px] lg:-z-50" /> */}
 						<img src="Circle.svg" alt="" className="relative top-[-0.7rem]" />
 						<div className="relative bottom-3">
-							<BorderStruktur Jabatan="Admin" Nama="Rahmat" Width="120px" />
+							<BorderStruktur Jabatan="Admin" Nama="P?" Width="120px" />
 							<div className="py-[3%]"></div>
-							<BorderStruktur Jabatan="" Nama="Amat" Width="120px" />
 						</div>
 					</div>
 				</div>  
@@ -293,4 +293,4 @@ const StrukturKelas = () => {
 	)
 }
 
-export default StrukturKelas
+export default StrukturAdmin

@@ -7,8 +7,8 @@ import Tabs from "@mui/material/Tabs"
 import Tab from "@mui/material/Tab"
 import Typography from "@mui/material/Typography"
 import Box from "@mui/material/Box"
-import StrukturKelas from "./StrukturKelas"
-// import Schedule from "./Schedule"
+import StrukturAdmin  from "./StrukturAdmin"
+import Voting from "./Voting"
 import AOS from "aos"
 import "aos/dist/aos.css"
 
@@ -113,8 +113,8 @@ export default function FullWidthTabs() {
       id="Glow"
     />
     {/* Hapus atau komentari Tab Schedule */}
-    {/* <Tab
-      label="Schedule"
+    <Tab
+      label="Voting"
       {...a11yProps(1)}
       sx={{
         fontWeight: "medium",
@@ -127,7 +127,7 @@ export default function FullWidthTabs() {
       }}
       className="font-medium text-white text-2xl text-center mt-16 "
       id="Glow"
-    /> */}
+    /> 
   </Tabs>
 </AppBar>
 <SwipeableViews
@@ -136,15 +136,15 @@ export default function FullWidthTabs() {
   onChangeIndex={handleChangeIndex}>
   <TabPanel value={value} index={0} dir={theme.direction}>
     <div>
-      <StrukturKelas />
+      <StrukturAdmin />
     </div>
   </TabPanel>
   {/* Hapus atau komentari TabPanel Schedule */}
-  {/* <TabPanel value={value} index={1} dir={theme.direction}>
+  <TabPanel value={value} index={1} dir={theme.direction}>
     <div>
-      <Schedule />
+      <Voting />
     </div>
-  </TabPanel> */}
+  </TabPanel>
 </SwipeableViews>
 			</Box>
 		</div>
