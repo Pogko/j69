@@ -53,7 +53,7 @@ const Footer = () => {
 				<div class="sm:flex sm:items-center sm:justify-between">
 					<div class="flex mt-4 justify-center sm:mt-0">
 						<p className="text-[0.7rem] text-white opacity-70">
-							© {new Date().getFullYear()} J69 | Jawa Sixty Nine
+							© 2023-{new Date().getFullYear()} J69 | Jawa Sixty Nine
 						</p>
 					</div>
 				</div>
