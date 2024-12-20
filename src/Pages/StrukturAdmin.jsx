@@ -154,7 +154,7 @@ const StrukturAdmin = () => {
 					</div>
 
 					<div className="flex-col">
-						<BorderStruktur Jabatan="Admin" Nama="KucingJMK" Width="120px" />
+						<BorderStruktur Jabatan="Admin" Nama="Rey/Kulub Hytam" Width="125px" />
 					</div>
 				</div> 
 
@@ -234,6 +234,7 @@ const StrukturAdmin = () => {
 						<img src="Circle.svg" alt="" className="relative top-[-0.7rem]" />
 						<div className="relative bottom-3">
 							<BorderStruktur Jabatan="Admin" Nama="Amat" Width="120px" />
+							<BorderStruktur Jabatan="" Nama="Ronald/batagor100k" Width="134px" />
 							<div className="py-[3%]"></div>
 						</div>
 					</div>
