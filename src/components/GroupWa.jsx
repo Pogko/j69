@@ -67,7 +67,7 @@ const GroupWa = ({ open, handleClose }) => {
             Group WhatsApp
           </div>
           <div className="flex flex-col mt-5">
-            <a href="https://chat.whatsapp.com/FgXHZJxIqd76XPSQHpgaSE" className="button">
+            <a href="https://chat.whatsapp.com/EafJbaPKiXN16C0CsQMrbX" className="button">
               <img src="/wa.svg" alt="WA Icon" className="wa-icon" />
               <span className="button-text">Group 1</span>
             </a>
