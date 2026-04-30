@@ -17,7 +17,7 @@ const Fade = React.forwardRef(function Fade(props, ref) {
 		from: { opacity: 0 },
 		to: { opacity: open ? 1 : 0 },
 		config: {
-		  duration: open ? 200 : 50, // Mengatur durasi berdasarkan kondisi open
+		  duration: open ? 200 : 50, 
 		},
 		onStart: () => {
 		  if (open && onEnter) {
@@ -88,7 +88,6 @@ export default function ButtonSend() {
 				}}>
 				<Fade in={open}>
 					<Box className="modal-container">
-						{/* Tambahkan tombol silang di kanan atas */}
 						<Button onClick={handleClose} style={{ position: "absolute", top: "0", right: "0" }}>
 						<CloseIcon
 							style={{ position: "absolute", top: "10px", right: "10px", cursor: "pointer",color: "grey", }}

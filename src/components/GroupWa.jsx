@@ -71,11 +71,6 @@ const GroupWa = ({ open, handleClose }) => {
               <img src="/wa.svg" alt="WA Icon" className="wa-icon" />
               <span className="button-text">Group 1</span>
             </a>
-
-             <a href="https://chat.whatsapp.com/EafJbaPKiXN16C0CsQMrbX" className="button">
-              <img src="/wa.svg" alt="WA Icon" className="wa-icon" />
-              <span className="button-text">Group 2</span>
-             </a>
           </div>
         </Box>
       </Fade>
